@@ -116,8 +116,8 @@ function createMovieCard(movie) {
         <img src="${movie.poster_url}" alt="${movie.title}" class="movie-post
         <div class="movie-info">
             <h2 class="movie-title">${movie.title}</h2>
-            <p class="movie-year">${movie.movie_year}</p>
-            <p class="movie-rating">Rating: ${movie.rating}</p>
+            <p class="movie-date">${movie.movie_year}</p>
+            <p class="movie-rating">${movie.rating}</p>
         </div></a>
     `;
   return movieCard;
