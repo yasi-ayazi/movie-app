@@ -1,61 +1,64 @@
-/* General Page Styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #101010;
-    color: white;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: black;
     text-align: center;
     padding: 20px;
     margin: 0;
 }
 
-/* Main Container */
+/* Main Container for Movies */
 .movies-container {
     display: flex;
-    overflow-x: auto; /* Enables horizontal scrolling */
+    overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 20px 0;
-    gap: 15px;
-    white-space: nowrap; /* Prevents wrapping */
+    padding: 20px;
+    white-space: nowrap;
+    justify-content: flex-start;
 }
 
-/* Styling the Scrollbar (for Chrome, Edge) */
+/* Styling the Scrollbar */
 .movies-container::-webkit-scrollbar {
     height: 8px;
 }
 
 .movies-container::-webkit-scrollbar-thumb {
-    background: #555;
+    background: #bbb;
     border-radius: 10px;
 }
 
 .movies-container::-webkit-scrollbar-track {
-    background: #222;
+    background: #eee;
 }
 
 /* Movie Card */
 .movie-card {
     display: inline-block;
-    background: #1c1c1c;
-    width: 150px; /* Similar size to TMDb cards */
+    background: white;
+    width: 160px;
     border-radius: 10px;
     overflow: hidden;
-    text-align: center;
-    cursor: pointer;
+    text-align: left;
     position: relative;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    margin-right: 40px;
 }
 
 .movie-card:hover {
     transform: scale(1.05);
-    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Movie Poster */
 .movie-card img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
     display: block;
+    border-radius: 10px;
+    border: 2px solid #ddd;
 }
 
 /* Movie Title */
@@ -63,26 +66,65 @@ body {
     font-size: 14px;
     font-weight: bold;
     margin-top: 8px;
-    color: white;
+    color: black;
     padding: 0 5px;
 }
 
 /* Movie Release Date */
 .movie-date {
-    font-size: 12px;
-    color: #bbb;
-    margin-top: 3px;
+    font-size: 10px;
+    color: rgba(128, 128, 128, 0.8);
+    font-weight: normal;
+    padding: 0 5px;
 }
 
-/* Movie Rating */
+/* Movie Rating - Positioned inside the bottom-left of the image */
 .movie-rating {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: #00c853;
-    color: black;
+    bottom: 2px;
+    right: 10px;
+    background: black;
+    color: white;
     font-weight: bold;
-    padding: 5px 8px;
     border-radius: 50%;
     font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    z-index: 10;
 }
+
+/* Remove Blue Underline from Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .movies-container {
+        padding-left: 15px;
+    }
+
+    .movie-card {
+        width: 120px;
+        margin-right: 20px;
+    }
+
+    .movie-title {
+        font-size: 12px;
+    }
+
+    .movie-rating {
+        font-size: 10px;
+        width: 25px;
+        height: 25px;
+    }
+}
+
