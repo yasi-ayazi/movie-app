@@ -1,3 +1,5 @@
+import { initializeComments } from "./commentHandler.js";
+
 const movies = [
   {
     id: 1,
@@ -109,32 +111,37 @@ const movies = [
   },
 ];
 
-function createMovieCard(movie) {
-  const movieCard = document.createElement("div");
-  movieCard.className = "movie-card";
-  movieCard.innerHTML = `<a href="movie-details.html?id=${movie.id}">
-        <img src="${movie.poster_url}" alt="${movie.title}" class="movie-post
-        <div class="movie-info">
-            <h2 class="movie-title">${movie.title}</h2>
-            <p class="movie-date">${movie.movie_year}</p>
-            <p class="movie-rating">${movie.rating}</p>
-        </div></a>
-    `;
-  return movieCard;
-}
+document.addEventListener("DOMContentLoaded", function () {
+  const moviesContainer = document.getElementById("movies-container");
 
-function renderMovies(movies) {
-  const movieList = document.createElement("div");
-  movieList.className = "movie-list";
-  movies.forEach((movie) => {
-    const movieCard = createMovieCard(movie);
-    movieList.appendChild(movieCard);
+  // Function to create movie elements
+  function createMovieCard(movie) {
+      const movieCard = document.createElement("div");
+      movieCard.classList.add("movie-card");
+      movieCard.innerHTML = `
+          <img src="${movie.poster_url}" alt="${movie.title}" class="movie-post
+          <div class="movie-info">
+          <div class="movie-title">${movie.title}</div>
+          <div class="movie-date">Released: ${movie.movie_year}</div>
+          <div class="movie-rating" id="rating-${movie.id}">${movie.rating}★</div>
+          </div>
+
+            <div class="comment-section">
+                <input type="text" id="comment-${movie.id}" placeholder="Add a comment" class="comment-input">
+                <button class="comment-btn" data-movie-id="${movie.id}">Submit</button>
+                <ul id="comment-list-${movie.id}" class="comment-list"></ul>
+            </div>
+      `;
+
+      moviesContainer.appendChild(movieCard);
+  }
+
+  // Render movies
+  movies.forEach(movie => {
+      createMovieCard(movie);
   });
-  const movi_container = document.getElementById("movies-container");
-  movi_container.appendChild(movieList);
-}
 
-function init() {
-  renderMovies(movies);
-}
-init();
+  // Initialize imported functions
+  initializeComments();
+
+});

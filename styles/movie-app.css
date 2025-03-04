@@ -80,21 +80,20 @@ body {
 
 /* Movie Rating - Positioned inside the bottom-left of the image */
 .movie-rating {
-    position: absolute;
-    bottom: 2px;
-    right: 10px;
     background: black;
     color: white;
     font-weight: bold;
-    border-radius: 50%;
-    font-size: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    z-index: 10;
+    border-radius: 20px;
+    font-size: 14px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin-top: 5px;
+    align-self: flex-start;
+    width: auto;
+    text-align: center;
 }
+
+
 
 /* Remove Blue Underline from Links */
 a {
@@ -105,6 +104,60 @@ a {
 a:hover {
     text-decoration: none;
 }
+/* Comment Section Styling */
+.comment-section {
+    margin-top: 10px;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.comment-btn {
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+.comment-btn:hover {
+    background: #0056b3;
+}
+
+.comment-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.comment-list li {
+    background: white;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+
+
 
 /* Responsive Design for Mobile */
 @media (max-width: 768px) {
